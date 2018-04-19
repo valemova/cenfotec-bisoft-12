@@ -23,20 +23,15 @@ public class ClienteTest {
     * */
 
     @Test
-<<<<<<< HEAD
+
     public void testAlquileresInfantiles(){
-=======
-    public void TestAlquileresInfantiles(){
->>>>>>> cde5121e2c728cc932e185d031dfff90889c7d78
 
         Pelicula testPeliculaInfantil = new Pelicula("Pelicula de prueba",Pelicula.INFANTIL);
         Disco testDiscoInfantil = new Disco("123",testPeliculaInfantil);
         Alquiler testAlquilerTresDias = new Alquiler(testDiscoInfantil,3);
         Alquiler testAlquilerCincoDias = new Alquiler(testDiscoInfantil,5);
-<<<<<<< HEAD
+
         Alquiler testAlquilerDiezDias = new Alquiler(testDiscoInfantil,10);
-=======
->>>>>>> cde5121e2c728cc932e185d031dfff90889c7d78
 
         testCliente.statement();
         testCliente.addRental(testAlquilerTresDias);
@@ -52,7 +47,6 @@ public class ClienteTest {
                 "\tPelicula de prueba\t4.5\n" +
                 "Monto total:  6.0\n" +
                 "Gano 2 puntos por alquiler frecuente", testCliente.statement());
-<<<<<<< HEAD
 
         testCliente.addRental(testAlquilerDiezDias);
         Assert.assertEquals("Alquileres de Cliente de prueba:\n" +
@@ -94,8 +88,6 @@ public class ClienteTest {
                 "\tPelicula de prueba\t14.0\n" +
                 "Monto total:  24.0\n" +
                 "Gano 3 puntos por alquiler frecuente", testCliente.statement());
-=======
->>>>>>> cde5121e2c728cc932e185d031dfff90889c7d78
     }
 
     @Test
@@ -116,7 +108,6 @@ public class ClienteTest {
         Assert.assertEquals(2,testAlquilerInfantil.getDisco().getPelicula().getCodigoPrecio());
         Assert.assertEquals(0,testAlquilerNormal.getDisco().getPelicula().getCodigoPrecio());
         Assert.assertEquals(1,testAlquilerEstreno.getDisco().getPelicula().getCodigoPrecio());
-<<<<<<< HEAD
     }
 
     @Test
@@ -148,10 +139,6 @@ public class ClienteTest {
                 "\tAlphaGo\t14.0\n" +
                 "Monto total:  24.0\n" +
                 "Gano 3 puntos por alquiler frecuente", Cliente.get("Persistente").statement());
-=======
-
->>>>>>> cde5121e2c728cc932e185d031dfff90889c7d78
-
     }
 
 }

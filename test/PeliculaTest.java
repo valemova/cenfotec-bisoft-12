@@ -38,6 +38,6 @@ public class PeliculaTest {
         Assert.assertEquals(testPeliculaInfantil,Pelicula.get("Finding Nemo"));
 
         testPeliculaNormal.persist();
-        Assert.assertEquals(testPeliculaNormal,Pelicula.get("Kill Bill vol. 2"));
+        Assert.assertEquals(testPeliculaNormal,Pelicula.get("Kill Bill"));
     }
 }

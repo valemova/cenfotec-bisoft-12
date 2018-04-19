@@ -18,7 +18,7 @@ public class Pelicula {
 		}
 
 		public void persist() {
-			Registrar.add ("Movies", this);
+			Registrar.add ("Peliculas", this);
 		}
 
 		public static Pelicula get(String name) {

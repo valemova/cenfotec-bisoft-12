@@ -1,9 +1,6 @@
 package test;
 
-import com.renta.peliculas.Alquiler;
-import com.renta.peliculas.Cliente;
-import com.renta.peliculas.Disco;
-import com.renta.peliculas.Pelicula;
+import com.renta.peliculas.*;
 import org.junit.Assert;
 import org.junit.Assert.*;
 import org.junit.Test;
@@ -139,6 +136,32 @@ public class ClienteTest {
                 "\tAlphaGo\t14.0\n" +
                 "Monto total:  24.0\n" +
                 "Gano 3 puntos por alquiler frecuente", Cliente.get("Persistente").statement());
+    }
+
+    @Test
+    public void testClienteFacade(){
+        ClienteFacade fachadaTest = new ClienteFacade("Fachada de interfaz");
+        Pelicula testPeliculaNormal= new Pelicula("AlphaGo",Pelicula.NORMAL);
+        Disco testDiscoNormal = new Disco("NetflixDocumentary01234",testPeliculaNormal);
+        Alquiler testAlquilerTresDias = new Alquiler(testDiscoNormal,3);
+        Alquiler testAlquilerCincoDias = new Alquiler(testDiscoNormal,5);
+        Alquiler testAlquilerDiezDias = new Alquiler(testDiscoNormal,10);
+
+        fachadaTest.addRental(testAlquilerTresDias);
+        fachadaTest.updateInternalAlquileresData();
+        Assert.assertEquals(3.5,fachadaTest.getMontosAlquileres().get(0),0.0001);
+
+        fachadaTest.addRental(testAlquilerCincoDias);
+        fachadaTest.updateInternalAlquileresData();
+        Assert.assertEquals(6.5,fachadaTest.getMontosAlquileres().get(1),0.0001);
+
+        fachadaTest.addRental(testAlquilerDiezDias);
+        fachadaTest.updateInternalAlquileresData();
+        Assert.assertEquals(14.0,fachadaTest.getMontosAlquileres().get(2),0.0001);
+
+        Assert.assertEquals(24.0,fachadaTest.getMontoTotalAlquieres(),0.0001);
+        Assert.assertEquals(3,fachadaTest.getPuntosAlquileresFrecuentes());
+
     }
 
 }

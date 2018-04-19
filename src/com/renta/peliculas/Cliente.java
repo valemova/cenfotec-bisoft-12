@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Cliente {
-	private String nombre;
-	
+	protected String nombre;
+
+	public Cliente(){}
+
 	public Cliente(String pNombre) {
         nombre = pNombre;
     }
@@ -55,8 +57,11 @@ public class Cliente {
 	public String getNombre() {
 		return nombre;
 	}
-    
-    
+
+	public void setNombre(String name) {
+	    this.nombre = name;
+    }
+
     public void addRental(Alquiler arg) {
     	alquileres.add(arg);
     }
@@ -66,5 +71,5 @@ public class Cliente {
     public void persist() {
     	Registrar.add("Clientes", this);
     }
-    private ArrayList<Alquiler> alquileres= new ArrayList<>();
+    protected ArrayList<Alquiler> alquileres= new ArrayList<>();
 }
